@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "@prisma/client": "^7.4.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dayjs": "^1.11.19",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "mammoth": "^1.11.0",
+    "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "pdf-parse": "^2.4.5",
+    "pptx-parser": "^1.1.7-beta.9"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "prisma": "^7.4.0"
+  }
+}
