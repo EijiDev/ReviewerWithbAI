@@ -5,7 +5,7 @@ export default function Sidebar({ activeNav, setActiveNav, open, onClose }) {
   return (
     <aside
       className={`
-        fixed inset-y-0 left-0 z-30 w-64 bg-white border-r border-gray-100 flex flex-col flex-shrink-0
+        fixed inset-y-0 left-0 z-30 w-64 bg-white border-r border-gray-100 flex flex-col shrink-0
         transform transition-transform duration-300 ease-in-out
         md:relative md:translate-x-0 md:z-auto
         ${open ? "translate-x-0 shadow-2xl" : "-translate-x-full"}
@@ -14,7 +14,7 @@ export default function Sidebar({ activeNav, setActiveNav, open, onClose }) {
       {/* Logo */}
       <div className="p-5 flex items-center justify-between border-b border-gray-100">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center shadow-md shadow-indigo-200 flex-shrink-0">
+          <div className="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center shadow-md shadow-indigo-200 shrink-0">
             <Layers className="w-5 h-5 text-white" />
           </div>
           <div>
@@ -38,7 +38,7 @@ export default function Sidebar({ activeNav, setActiveNav, open, onClose }) {
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-left
                 ${isActive ? "bg-indigo-50 text-indigo-700" : "text-gray-500 hover:bg-gray-50 hover:text-gray-700"}`}
             >
-              <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? "text-indigo-600" : "text-gray-400"}`} strokeWidth={1.8} />
+              <Icon className={`w-4 h-4 shrink-0 ${isActive ? "text-indigo-600" : "text-gray-400"}`} strokeWidth={1.8} />
               {label}
             </button>
           );
@@ -51,7 +51,7 @@ export default function Sidebar({ activeNav, setActiveNav, open, onClose }) {
           onClick={() => console.log("Logging out...")}
           className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-red-500 hover:bg-red-50 hover:text-red-600 transition-all duration-150"
         >
-          <LogOut className="w-4 h-4 flex-shrink-0" strokeWidth={1.8} />
+          <LogOut className="w-4 h-4 shrink-0" strokeWidth={1.8} />
           Logout
         </button>
       </div>

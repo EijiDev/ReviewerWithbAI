@@ -20,7 +20,7 @@ export default function MyAssignmentsPage() {
             <p className="text-sm text-gray-400 mt-0.5">Track and manage your assignments.</p>
           </div>
           <button onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 md:px-5 py-2.5 rounded-xl text-sm font-semibold shadow-sm transition-all flex-shrink-0">
+            className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 md:px-5 py-2.5 rounded-xl text-sm font-semibold shadow-sm transition-all shrink-0">
             <Plus className="w-4 h-4" />
             <span className="hidden sm:inline">Add Assignment</span>
             <span className="sm:hidden">Add</span>
@@ -31,7 +31,7 @@ export default function MyAssignmentsPage() {
         <div className="flex gap-2 mb-6 md:mb-8 overflow-x-auto pb-1 scrollbar-hide">
           {TABS.map((tab) => (
             <button key={tab} onClick={() => setActiveTab(tab)}
-              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all whitespace-nowrap flex-shrink-0 ${
+              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all whitespace-nowrap shrink-0 ${
                 activeTab === tab ? "bg-indigo-600 text-white" : "text-gray-500 hover:bg-gray-100"}`}>
               {tab}
             </button>
@@ -58,7 +58,7 @@ export default function MyAssignmentsPage() {
                   <p className="font-semibold text-gray-800 text-sm truncate">{a.title}</p>
                   <p className="text-xs text-gray-400 mt-0.5">{a.subject} · Due {a.dueDate}</p>
                 </div>
-                <span className={`text-xs font-semibold px-3 py-1 rounded-full flex-shrink-0 ${
+                <span className={`text-xs font-semibold px-3 py-1 rounded-full shrink-0 ${
                   a.priority === "High" ? "bg-red-50 text-red-500" :
                   a.priority === "Medium" ? "bg-amber-50 text-amber-500" : "bg-green-50 text-green-500"}`}>
                   {a.priority}

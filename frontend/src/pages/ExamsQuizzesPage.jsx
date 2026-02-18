@@ -15,7 +15,7 @@ export default function ExamsQuizzesPage() {
             <p className="text-sm text-gray-400 mt-0.5">Keep track of your upcoming tests.</p>
           </div>
           <button onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 md:px-5 py-2.5 rounded-xl text-sm font-semibold shadow-sm transition-all flex-shrink-0">
+            className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 md:px-5 py-2.5 rounded-xl text-sm font-semibold shadow-sm transition-all shrink-0">
             <Plus className="w-4 h-4" />
             <span className="hidden sm:inline">Add Exam / Quiz</span>
             <span className="sm:hidden">Add</span>
@@ -42,7 +42,7 @@ export default function ExamsQuizzesPage() {
                   <p className="font-semibold text-gray-800 text-sm truncate">{exam.title}</p>
                   <p className="text-xs text-gray-400 mt-0.5">{exam.subject} · {exam.type} · {exam.dateTime}</p>
                 </div>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-50 text-indigo-500 flex-shrink-0">{exam.type}</span>
+                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-50 text-indigo-500 shrink-0">{exam.type}</span>
               </div>
             ))}
           </div>

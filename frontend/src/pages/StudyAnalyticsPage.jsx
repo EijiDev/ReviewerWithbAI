@@ -33,7 +33,7 @@ export default function StudyAnalyticsPage() {
               <p className="text-xs md:text-sm text-gray-500 mb-1 md:mb-1.5 font-medium leading-tight">{label}</p>
               <p className="text-2xl md:text-3xl font-bold text-gray-800">{value}</p>
             </div>
-            <div className={`${iconBg} p-2 md:p-3 rounded-xl flex-shrink-0`}>
+            <div className={`${iconBg} p-2 md:p-3 rounded-xl shrink-0`}>
               <Icon className={`w-5 h-5 md:w-6 md:h-6 ${iconColor}`} strokeWidth={1.5} />
             </div>
           </div>
@@ -59,10 +59,10 @@ export default function StudyAnalyticsPage() {
               <div key={name}>
                 <div className="flex items-center justify-between mb-1.5">
                   <div className="flex items-center gap-2 min-w-0">
-                    <span className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${SUBJECT_COLORS[i % SUBJECT_COLORS.length]}`} />
+                    <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${SUBJECT_COLORS[i % SUBJECT_COLORS.length]}`} />
                     <span className="text-sm text-gray-700 truncate">{name}</span>
                   </div>
-                  <span className="text-sm text-gray-400 flex-shrink-0 ml-2">{completed}/{total}</span>
+                  <span className="text-sm text-gray-400 shrink-0 ml-2">{completed}/{total}</span>
                 </div>
                 <div className="w-full h-1.5 bg-gray-100 rounded-full">
                   <div className={`h-1.5 rounded-full transition-all duration-500 ${SUBJECT_COLORS[i % SUBJECT_COLORS.length]}`} style={{ width: `${pct}%` }} />

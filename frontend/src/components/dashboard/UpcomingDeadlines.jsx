@@ -17,7 +17,7 @@ export default function UpcomingDeadlines({ deadlines = [] }) {
           {deadlines.map((item, i) => (
             <li key={i} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl text-sm gap-3">
               <span className="font-medium text-gray-700 truncate">{item.title}</span>
-              <span className="text-gray-400 flex-shrink-0">{item.due}</span>
+              <span className="text-gray-400 shrink-0">{item.due}</span>
             </li>
           ))}
         </ul>

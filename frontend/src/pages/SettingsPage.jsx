@@ -13,7 +13,7 @@ function Section({ title, children }) {
 function Toggle({ enabled, onToggle }) {
   return (
     <button onClick={onToggle}
-      className={`relative inline-flex w-11 h-6 items-center rounded-full transition-colors duration-200 focus:outline-none flex-shrink-0 ${enabled ? "bg-indigo-600" : "bg-gray-200"}`}>
+      className={`relative inline-flex w-11 h-6 items-center rounded-full transition-colors duration-200 focus:outline-none shrink-0 ${enabled ? "bg-indigo-600" : "bg-gray-200"}`}>
       <span className={`inline-block w-4 h-4 bg-white rounded-full shadow transform transition-transform duration-200 ${enabled ? "translate-x-6" : "translate-x-1"}`} />
     </button>
   );
@@ -26,7 +26,7 @@ function SettingRow({ label, description, right }) {
         <p className="text-sm font-medium text-gray-700">{label}</p>
         {description && <p className="text-xs text-gray-400 mt-0.5 leading-relaxed">{description}</p>}
       </div>
-      <div className="flex-shrink-0">{right}</div>
+      <div className="shrink-0">{right}</div>
     </div>
   );
 }
@@ -61,7 +61,7 @@ export default function SettingsPage() {
         {/* Profile */}
         <Section title="Profile">
           <div className="flex items-center gap-3 md:gap-4 mb-5">
-            <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-indigo-100 flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-indigo-100 flex items-center justify-center shrink-0">
               <User className="w-6 h-6 md:w-7 md:h-7 text-indigo-500" strokeWidth={1.5} />
             </div>
             <div>
