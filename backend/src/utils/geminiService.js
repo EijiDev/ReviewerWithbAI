@@ -63,7 +63,6 @@ async function generateWithFallback(prompt, useModel = MODEL_PRIMARY, retries = 
     }
 
     if ((error.status === 429 || error.status === 503) && retries > 0) {
-      console.log(`Waiting 30s before retry...`);
       await new Promise((res) => setTimeout(res, 30000));
       return generateWithFallback(prompt, useModel, retries - 1);
     }

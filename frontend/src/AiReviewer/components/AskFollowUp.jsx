@@ -38,9 +38,6 @@ export function AskFollowUp({ sessionId }) {
           <p className="font-bold text-green-800 text-xs uppercase tracking-wider mb-2">
             Sagot ni Prof. AI:
           </p>
-          {/* Fix: If answer is an object, show the explanation. 
-      Otherwise, show the answer itself. 
-    */}
           {typeof answer === "object" ? answer.explanation : answer}
         </div>
       )}

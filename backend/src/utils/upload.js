@@ -1,28 +1,35 @@
 import multer from "multer";
 
-const ALLOWED_TYPES = [
+const ALLOWED_MIME_TYPES = [
   "application/pdf",
-  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-  "application/msword",
-  "application/vnd.ms-powerpoint",
+  "application/vnd.openxmlformats-officedocument.presentationml.presentation", // .pptx
+  "application/vnd.ms-powerpoint", // .ppt
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document", // .docx
+  "application/msword", // .doc
 ];
 
-const ALLOWED_EXTS = ["pdf", "docx", "pptx"];
-
-const storage = multer.memoryStorage(); // Store in memory as buffer
+const ALLOWED_EXTENSIONS = ["pdf", "pptx", "ppt", "docx", "doc"];
+const MAX_FILE_SIZE_MB = 10;
 
 const fileFilter = (req, file, cb) => {
   const ext = file.originalname.split(".").pop().toLowerCase();
-  if (ALLOWED_EXTS.includes(ext) || ALLOWED_TYPES.includes(file.mimetype)) {
+  const validExt = ALLOWED_EXTENSIONS.includes(ext);
+  const validMime = ALLOWED_MIME_TYPES.includes(file.mimetype);
+
+  if (validExt && validMime) {
     cb(null, true);
   } else {
-    cb(new Error("Invalid file type. Only PDF, DOCX, and PPTX are allowed."), false);
+    cb(
+      new Error(
+        `Invalid file type. Allowed: ${ALLOWED_EXTENSIONS.join(", ").toUpperCase()} only.`
+      ),
+      false
+    );
   }
 };
 
 export const upload = multer({
-  storage,
+  storage: multer.memoryStorage(),
   fileFilter,
-  limits: { fileSize: 20 * 1024 * 1024 }, // 20MB limit
+  limits: { fileSize: MAX_FILE_SIZE_MB * 1024 * 1024 },
 });

@@ -1,4 +1,3 @@
-import { Sparkles } from "lucide-react";
 import { useReviewer } from "./hooks/useReviewer";
 import { UploadPanel } from "./components/UploadPanel";
 import { StatusPanel } from "./components/StatusPanel";
@@ -16,7 +15,6 @@ export default function AIReviewerPage() {
     <main className="min-h-screen bg-gray-50 py-20 px-4 md:px-8">
       <div className="max-w-4xl mx-auto w-full">
 
-        {/* Header */}
         <div className="text-center mb-10">
           <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-4 leading-tight">
             <span className="bg-clip-text text-transparent bg-green-900">
@@ -59,7 +57,7 @@ export default function AIReviewerPage() {
             <div className="text-center pb-4">
               <button
                 onClick={reset}
-                className="text-xs text-gray-400 hover:text-indigo-500 transition-colors underline"
+                className="text-xs text-gray-400 hover:text-green-700 transition-colors "
               >
                 Upload another file
               </button>
@@ -67,10 +65,9 @@ export default function AIReviewerPage() {
           </div>
         )}
 
-        {/* Footer */}
         <div className="text-center py-6 mt-4">
           <p className="text-xs text-gray-400">
-            Made with by{" "}
+            Made by{" "}
             <a
               href="https://github.com/EijiDev"
               target="_blank"
@@ -81,7 +78,6 @@ export default function AIReviewerPage() {
             </a>
           </p>
         </div>
-
       </div>
     </main>
   );

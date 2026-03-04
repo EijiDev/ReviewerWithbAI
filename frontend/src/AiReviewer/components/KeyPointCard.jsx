@@ -12,7 +12,7 @@ export function KeyPointCard({ point, explanation, index }) {
         className="w-full flex items-center justify-between px-4 py-4 bg-white hover:bg-gray-50 transition-colors text-left"
       >
         <div className="flex items-center gap-3">
-          <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-800 text-xs font-bold flex items-center justify-center">
+          <span className="shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-800 text-xs font-bold flex items-center justify-center">
             {index + 1}
           </span>
           <span className="text-sm font-semibold text-gray-800">{point}</span>

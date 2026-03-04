@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const { Pool } = pg;
+
 export const pool = new Pool({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
@@ -14,10 +15,11 @@ export const pool = new Pool({
 
 export async function testConnection() {
   try {
-    const res = await pool.query('SELECT NOW()');
-    console.log("Database connected at:", res.rows[0].now);
+    const client = await pool.connect();
+    client.release();
+    console.log("✅ Database connected successfully.");
   } catch (err) {
-    console.error("Database connection failed:", err);
-    process.exit(1); 
+    console.error("❌ Database connection failed:", err.message);
+    process.exit(1);
   }
 }
