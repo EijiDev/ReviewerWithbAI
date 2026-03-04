@@ -69,7 +69,7 @@ export function ReviewTabs({ review }) {
                 Quick Knowledge Check
               </p>
               <p className="text-xs text-gray-400 mt-1">
-                Subukan natin kung nag-sink in yung lesson! 🧠
+                Try nga natin kung nag-sink in yung lesson! 
               </p>
             </div>
             {review.quizQuestions?.map((q, i) => (

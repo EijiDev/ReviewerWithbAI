@@ -35,7 +35,7 @@ export function AskFollowUp({ sessionId }) {
       </div>
       {answer && (
         <div className="mt-4 p-5 rounded-xl bg-gray-50 border border-gray-100 text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
-          <p className="font-bold text-indigo-600 text-xs uppercase tracking-wider mb-2">
+          <p className="font-bold text-green-800 text-xs uppercase tracking-wider mb-2">
             Sagot ni Prof. AI:
           </p>
           {/* Fix: If answer is an object, show the explanation. 
