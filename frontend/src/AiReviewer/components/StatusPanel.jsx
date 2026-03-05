@@ -4,7 +4,7 @@ export function StatusPanel({ file, loading, error, result, onGenerate }) {
   return (
     <div className="flex flex-col items-center justify-center rounded-2xl border border-gray-200 bg-white min-h-52 p-10 shadow-sm text-center">
       <Bot
-        className={`w-10 h-10 mb-4 ${loading ? "text-green-600 animate-bounce" : "text-gray-400"}`}
+        className={`w-10 h-10 mb-4 ${loading ? "text-green-800 animate-bounce" : "text-gray-400"}`}
         strokeWidth={1.5}
       />
       <p className="text-sm font-bold text-gray-800 mb-1">

@@ -32,7 +32,7 @@ export async function generateReviewer(req, res, next) {
       });
     }
 
-    // 2. Generate AI review
+    //Generate AI review
     let review;
     try {
       review = await generateReview(extractedText, originalname);
@@ -62,7 +62,6 @@ export async function generateReviewer(req, res, next) {
     next(err);
   }
 }
-
 
 export async function askQuestion(req, res, next) {
   try {

@@ -8,10 +8,10 @@ const MODEL_FALLBACK = "gemini-2.5-flash";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const SYSTEM_PROMPT = `
-Ikaw ay isang magaling na teacher na nagpapaliwanag in Taglish.
+Ikaw ay isang professinal na teacher na nagpapaliwanag in Taglish.
 
 GOAL:
-Mag-explain na parang kinukwento mo lang sa kaibigan mo.
+Mag-explain na parang kinukwento mo lang sa kaibigan mo but still in professional way.
 Chill, friendly, at madaling intindihin.
 
 STYLE RULES:
@@ -46,7 +46,11 @@ EXAMPLE NG TAMANG STYLE:
 "So basically, ang HTML ay parang skeleton ng website. Kumbaga sa bahay, siya yung poste at pader. Pero pag HTML lang, mukhang payat and walang kulay — boring! Kaya diyan papasok ang CSS para lagyan ng kulay and design."
 `;
 
-async function generateWithFallback(prompt, useModel = MODEL_PRIMARY, retries = 2) {
+async function generateWithFallback(
+  prompt,
+  useModel = MODEL_PRIMARY,
+  retries = 2,
+) {
   const model = genAI.getGenerativeModel({
     model: useModel,
     generationConfig: { responseMimeType: "application/json" },
@@ -57,7 +61,10 @@ async function generateWithFallback(prompt, useModel = MODEL_PRIMARY, retries = 
   } catch (error) {
     console.error(`Attempt with ${useModel} failed:`, error.message);
 
-    if ((error.status === 429 || error.status === 404) && useModel === MODEL_PRIMARY) {
+    if (
+      (error.status === 429 || error.status === 404) &&
+      useModel === MODEL_PRIMARY
+    ) {
       console.warn("Switching to fallback model...");
       return generateWithFallback(prompt, MODEL_FALLBACK, retries);
     }
@@ -85,9 +92,9 @@ ${cleanText}
 
 Generate a COMPLETE REVIEW in this JSON format:
 {
-  "title": "catchy taglish title",
+  "title": "Title of the powerpoint",
   "introduction": "1-2 sentence intro",
-  "explanation": "Feynman style (4-8 paragraphs). Use \\n for spacing.",
+  "explanation": "Every keypoints explain it in Feynman style in Taglish (2-3 sentences only)"
   "keyPoints": [{"point": "title", "explanation": "1-sentence"}],
   "quizQuestions": [
     {
@@ -110,7 +117,9 @@ Note:
     return JSON.parse(result.response.text());
   } catch (error) {
     console.error("❌ Final Service Error:", error);
-    throw new Error("Quota Exceeded: Masyadong maraming requests today. Try again tomorrow or use a new API key.");
+    throw new Error(
+      "Quota Exceeded: Masyadong maraming requests today. Try again tomorrow or use a new API key.",
+    );
   }
 }
 
@@ -120,7 +129,11 @@ export async function askFollowUp(question, originalText) {
 
   try {
     const result = await generateWithFallback(prompt);
-    return result.response.text();
+    const text = result.response.text();
+
+    const parsed = JSON.parse(text);
+    return parsed.response;
+
   } catch (error) {
     return "Medyo overloaded ang servers. Try again later, friend!";
   }

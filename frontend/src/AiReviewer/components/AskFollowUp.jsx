@@ -19,7 +19,7 @@ export function AskFollowUp({ sessionId }) {
           onChange={(e) => setQuestion(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && ask()}
           placeholder="e.g. 'Ano ulit yung HTML Tag?'"
-          className="flex-1 text-sm border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-400 transition-all"
+          className="flex-1 text-sm border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-600 transition-all"
         />
         <button
           onClick={ask}
@@ -38,7 +38,7 @@ export function AskFollowUp({ sessionId }) {
           <p className="font-bold text-green-800 text-xs uppercase tracking-wider mb-2">
             Sagot ni Prof. AI:
           </p>
-          {typeof answer === "object" ? answer.explanation : answer}
+          {typeof answer === "object" ? answer.response : answer}
         </div>
       )}
     </div>
