@@ -10,7 +10,7 @@ import {
 const router = Router();
 
 router.post("/generate", upload.single("file"), generateReviewer);
-router.post("/ask", askQuestion)
+router.post("/ask", askQuestion)  
 router.get("/sessions", getSessions);
 router.get("/sessions/:id", getSession);
 
