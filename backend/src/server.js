@@ -1,13 +1,10 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import ReviewerRoutes from "./routes/reviewer.routes.js";
 import { errorHandler } from "./utils/errorHandler.js";
 import { testConnection } from "./config/database.js";
-
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
