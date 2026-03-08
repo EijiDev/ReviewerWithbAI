@@ -13,7 +13,7 @@ export function StatusPanel({ file, loading, error, result, onGenerate }) {
       <p className="text-xs text-gray-500 leading-relaxed px-4">
         {result
           ? `${result.review.keyPoints?.length || 0} key points found. Check the tabs below.`
-          : "Ipaliwanag natin 'yan parang nagkukwentuhan lang tayo."}
+          : "Ipaliwanag ko sayo yan. kase wala kang bitaw"}
       </p>
 
       {error && (
