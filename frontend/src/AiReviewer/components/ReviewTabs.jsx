@@ -39,7 +39,7 @@ export function ReviewTabs({ review }) {
             <h2 className="text-xl font-bold text-gray-900 mb-4">
               {review.title}
             </h2>
-            <div className="text-gray-700 leading-relaxed text-[15px] space-y-4">
+            <div className="text-gray-700 leading-relaxed text-[15px] space-y-4 max-h-[60vh] overflow-y-auto pr-2 md:max-h-none md:overflow-visible">
               {review.explanation?.split("\n\n").map((para, i) => (
                 <p key={i}>
                   <HighlightedText text={para} />
@@ -69,7 +69,7 @@ export function ReviewTabs({ review }) {
                 Quick Knowledge Check
               </p>
               <p className="text-xs text-gray-400 mt-1">
-                Try nga natin kung nag-sink in yung lesson! 
+                Try nga natin kung nag-sink in yung lesson!
               </p>
             </div>
             {review.quizQuestions?.map((q, i) => (
