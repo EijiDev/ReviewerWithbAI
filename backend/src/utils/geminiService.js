@@ -94,21 +94,21 @@ Generate a COMPLETE REVIEW in this JSON format:
 {
   "title": "Title of the powerpoint",
   "introduction": "1-2 sentence intro",
-  "explanation": "Every keypoints explain it in Feynman style in Taglish (2-3 sentences only)"
-  "keyPoints": [{"point": "title", "explanation": "1-sentence"}],
+  "explanation": "Every keypoints explain it in Feynman style in Taglish (2-3 sentences only) do not use deep tagalog words"
+  "keyPoints": [{"point": "title", "explanation": "1 and half sentence just use casual tagalog words"}],
   "quizQuestions": [
     {
-      "question": "tanong",
+      "question": "in english",
       "choices": ["A", "B", "C", "D"],
-      "answer": "exact text of choice",
+      "answer": "exact text of choice in english",
       "explanation": "why this is correct"
     }
   ]
 }
 
 Note:
-- 10 key points
-- 10 quiz questions
+- 15 key points
+- 15 quiz questions
 - Taglish only
 `;
 
