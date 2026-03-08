@@ -11,13 +11,16 @@ export function useReviewer() {
 
   const selectFile = (f) => {
     if (!f) return;
+
     const validationError = validateFile(f);
     if (validationError) {
       setError(validationError);
       setFile(null);
+
       if (inputRef.current) inputRef.current.value = "";
       return;
     }
+
     setFile(f);
     setResult(null);
     setError("");
@@ -40,15 +43,23 @@ export function useReviewer() {
     formData.append("file", file);
 
     try {
-      const res = await fetch(`${API_BASE}/reviewer/generate`, {
+      const res = await fetch(`${API_BASE}/api/reviewer/generate`, {
         method: "POST",
         body: formData,
       });
 
-      const data = await res.json();
+      let data;
+
+      try {
+        data = await res.json();
+      } catch {
+        data = {};
+      }
 
       if (!res.ok) {
-        setError(STATUS_MESSAGES[res.status] || data.error || "Something went wrong.");
+        setError(
+          STATUS_MESSAGES[res.status] || data.error || "Something went wrong.",
+        );
         return;
       }
 
@@ -68,8 +79,18 @@ export function useReviewer() {
     setFile(null);
     setResult(null);
     setError("");
+
     if (inputRef.current) inputRef.current.value = "";
   };
 
-  return { file, loading, error, result, inputRef, selectFile, generate, reset };
+  return {
+    file,
+    loading,
+    error,
+    result,
+    inputRef,
+    selectFile,
+    generate,
+    reset,
+  };
 }
