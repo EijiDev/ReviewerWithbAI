@@ -16,9 +16,9 @@ export async function testConnection() {
   try {
     const client = await pool.connect();
     client.release();
-    console.log("✅ Database connected successfully.");
+    console.log("Database connected successfully.");
   } catch (err) {
     console.error("❌ Database connection failed:", err.message);
-    process.exit(1);
+    throw err; 
   }
 }

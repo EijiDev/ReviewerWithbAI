@@ -68,21 +68,18 @@ app.get("/api/health", (req, res) => {
 
 app.use(errorHandler);
 
-
 async function startServer() {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
+
   try {
     await testConnection();
-
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
-    });
-
+    console.log("✅ Database connected");
   } catch (error) {
-    console.error("❌ Failed to start server:", error);
-    process.exit(1);
+    console.error("⚠️ DB connection failed, but server still running:", error);
   }
 }
-
 startServer();
 
 export default app;
