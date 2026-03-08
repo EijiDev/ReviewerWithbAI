@@ -14,17 +14,15 @@ const PORT = process.env.PORT || 5000;
 
 app.set("trust proxy", 1);
 
-
 app.use(helmet());
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
-  })
+    origin: process.env.CLIENT_URL || "http://localhost:5173", 
+  }),
 );
 
 app.use(express.json());
-
 
 const generalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -50,7 +48,6 @@ const askLimiter = rateLimit({
   message: { error: "Too many questions. Please slow down and try again." },
 });
 
-
 app.use("/api", generalLimiter);
 app.use("/api/reviewer/generate", generateLimiter);
 app.use("/api/reviewer/ask", askLimiter);
@@ -64,7 +61,6 @@ app.get("/", (req, res) => {
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
 });
-
 
 app.use(errorHandler);
 
