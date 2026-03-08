@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { validateFile, STATUS_MESSAGES } from "../utils/fileValidation";
-
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+import { API_BASE } from "../../api/Api";
 
 export function useReviewer() {
   const [file, setFile] = useState(null);
